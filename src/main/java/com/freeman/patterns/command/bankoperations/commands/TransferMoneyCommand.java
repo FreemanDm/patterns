@@ -1,17 +1,16 @@
 package com.freeman.patterns.command.bankoperations.commands;
 
 import com.freeman.patterns.command.bankoperations.receivers.Bank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TransferMoneyCommand implements Command {
 
     private Bank bank;
-
-//    public TransferMoneyCommand(Bank bank) {
-//        this.bank = bank;
-//    }
 
     @Override
     public void execute() {

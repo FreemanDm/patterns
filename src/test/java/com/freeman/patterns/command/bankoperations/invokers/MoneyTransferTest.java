@@ -1,13 +1,11 @@
 package com.freeman.patterns.command.bankoperations.invokers;
 
 import com.freeman.patterns.command.bankoperations.Person;
-import com.freeman.patterns.command.bankoperations.commands.ReceiveMoneyCommand;
-import com.freeman.patterns.command.bankoperations.commands.SendMoneyCommand;
 import com.freeman.patterns.command.bankoperations.commands.TransferMoneyCommand;
 import com.freeman.patterns.command.bankoperations.receivers.Bank;
 import org.junit.Test;
 
-public class MoneyTransferOldTest {
+public class MoneyTransferTest {
 
     @Test
     public void moneyTransferTest(){
@@ -22,12 +20,10 @@ public class MoneyTransferOldTest {
 
 
 
-        moneyTransfer.undoMoneyOperation();
-        System.out.print(senderMike);
-        System.out.println(receiverJack);
-//        moneyTransferOld.undoMoneyOperation();
-//        moneyTransferOld.undoMoneyOperation();
-//        moneyTransferOld.undoMoneyOperation();
+//        moneyTransfer.undoMoneyOperation();
+//        System.out.print(senderMike);
+//        System.out.println(receiverJack);
+
         
     }
 

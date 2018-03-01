@@ -50,15 +50,6 @@ public class MoneyTransfer {
 
     @Override
     public String toString() {
-//        StringBuffer stringBuff = new StringBuffer();
-//        MoneyTransfer_old moneyTransfer;
-//        if (moneyTransfer.sendMoneyOperation())
-//        stringBuff.append()
-//        for (int i = 0; i < onCommands.length; i++) {
-//            stringBuff.append("[slot " + i + "] " + onCommands[i].getClass().getName() + "     " + offCommands[i].getClass().getName() + "\n");
-//        }
-//        stringBuff.append("[undo] " + undoCommand.getClass().getName());
-//        return stringBuff.toString();
         return  "Operation ID: " + operationID + " (" + sender.getName()
                 + " sent " + amountOfMoney + " to " + receiver.getName() + ")";
     }
