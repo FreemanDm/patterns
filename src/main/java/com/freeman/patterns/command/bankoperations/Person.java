@@ -16,6 +16,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Count of the " + name + ": " + accountId + " = " + amountOfMoneyOnTheCount + " | ";
+        return bankOfTheClient + " => account of the " + name + ": " + accountId + " = " + amountOfMoneyOnTheCount;
     }
 }

@@ -2,6 +2,7 @@ package com.freeman.patterns.command.bankoperations.invokers;
 
 import com.freeman.patterns.command.bankoperations.Person;
 import com.freeman.patterns.command.bankoperations.commands.Command;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,40 +10,23 @@ import java.util.LinkedList;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class MoneyTransfer {
 
     private Command transferCommand;
     private LinkedList<Command> undoCommands = new LinkedList<>();
-    private int operationID;
-    private Long amountOfMoney;
-    private Person sender;
-    private Person receiver;
 
-    public MoneyTransfer(Command transferCommand, int operationID, Long amountOfMoney, Person sender, Person receiver) {
-        this.transferCommand = transferCommand;
-        this.operationID = operationID;
-        this.amountOfMoney = amountOfMoney;
-        this.sender = sender;
-        this.receiver = receiver;
-    }
 
-    public void transferMoneyOperation(MoneyTransfer moneyTransfer){
+    public void transferMoneyOperation(Command transferCommand){
         transferCommand.execute();
         undoCommands.addFirst(transferCommand);
-        sender.setAmountOfMoneyOnTheCount(sender.getAmountOfMoneyOnTheCount() - amountOfMoney);
-        receiver.setAmountOfMoneyOnTheCount(receiver.getAmountOfMoneyOnTheCount() + amountOfMoney);
-        System.out.println(moneyTransfer);
-        System.out.println("Count of the " + sender.getName() + ": "
-                        + sender.getAccountId() + " = " + sender.getAmountOfMoneyOnTheCount()
-                        + " | "
-                        + "Count of the " + receiver.getName() + ": "
-                        + receiver.getAccountId() + " = " + receiver.getAmountOfMoneyOnTheCount()
-                        + " | ");
     }
 
     public void undoMoneyOperation(){
         if (undoCommands.size() != 0){
+            System.out.println(undoCommands.getFirst());
             undoCommands.removeFirst().undo();
+
         } else {
             System.out.println("Stack for 'Undo' is empty");
         }
@@ -50,7 +34,9 @@ public class MoneyTransfer {
 
     @Override
     public String toString() {
-        return  "Operation ID: " + operationID + " (" + sender.getName()
-                + " sent " + amountOfMoney + " to " + receiver.getName() + ")";
+        return "MoneyTransfer{" +
+                "transferCommand=" + transferCommand +
+                ", undoCommands=" + undoCommands +
+                '}';
     }
 }

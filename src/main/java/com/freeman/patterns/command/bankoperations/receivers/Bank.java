@@ -18,4 +18,9 @@ public class Bank {
     public void receive(){
 //        System.out.println("Money was received: ");
     }
+
+    @Override
+    public String toString() {
+        return "BANK: " + "'" + bankName + "'";
+    }
 }
